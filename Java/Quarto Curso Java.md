@@ -245,15 +245,3 @@ CTRL + ALT + I  - Deixa o Código mais limpo**
 - `**try**`**:** **"Tente ler o arquivo** `**estoque.json**`**".**
 - `**catch**`**:** **"Se o arquivo sumiu, avise ao usuário: 'Arquivo não encontrado!' em vez de travar o programa".**
 
-* * *
-
-## **Por que usar** `**Scanner**` **no seu Projeto do Sorter?**
-
-1. **Versatilidade:** **Você usa a mesma ferramenta para ler o que o seu amigo digita no teclado (**`**System.in**`**) e para ler o arquivo onde as peças estão salvas.**
-2. **Facilidade:** **No seu sistema, cada linha do arquivo pode ser uma peça. Com o** `**Scanner**`**, você lê a linha inteira, quebra as informações e transforma no seu** **Record de Material****.**
-
-> **Dica de Ouro:** **Sempre dê o** `**scanner.close()**` **ao terminar. É como devolver a prancheta para o lugar; se você ficar com ela na mão, ninguém mais consegue ler a lista.**
-
-<br>
-
-<br>
