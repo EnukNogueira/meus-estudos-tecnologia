@@ -1,29 +1,63 @@
 # Meus Estudos de Tecnologia
 
-Criei este repositório para centralizar tudo o que venho estudando no meu dia a dia. Ele funciona como o meu "Segundo Cérebro", onde organizo minhas anotações direto do UpNote para fixar o conhecimento de forma simples, prática e rica em detalhes.
-
-Em vez de apenas assistir às aulas ou copiar código, gosto de parar, pensar nas analogias e estruturar o material com foco em conceitos reais, sintaxe prática e regras de segurança para ambientes de produção.
+Repositório de documentação técnica pessoal — anotações, exemplos práticos e referências organizadas por tecnologia, atualizadas continuamente durante a transição de carreira para Engenharia de Dados e IA.
 
 ---
 
-##  O que você vai encontrar aqui:
+## Sobre este repositório
 
-O repositório está dividido pelas tecnologias que venho dominando nos últimos meses:
+Este é o meu "segundo cérebro" técnico. Em vez de apenas assistir aulas ou copiar código, documento o que aprendo com foco em conceitos reais, sintaxe prática e boas práticas para ambientes de produção. O conteúdo parte de cursos (Alura, Asimov Academy, Coursera), da graduação em ADS na PUCPR e de projetos práticos.
 
-*   **[Java](./Java):** Lógica, Orientação a Objetos (POO), listas, consumo de APIs e tratamento estruturado de erros.
-*   **[Python](./Python):** Scripts de automação, manipulação de arquivos e bibliotecas voltadas para dados (Pandas e NumPy).
-*   **[SQL](./SQL):** Modelagem de bancos de dados, comandos DML (como INSERT, UPDATE, DELETE) e consultas analíticas.
-*   **[Engenharia de Dados & IA](./Engenharia%20de%20Dados):** Conceitos de pipelines, ETL/ELT, automações com n8n e engenharia de prompt.
-*   **[Power BI](./Power%20BI):** *(Em desenvolvimento)* Modelagem de dados, fórmulas DAX e criação de painéis visuais para tomadas de decisão.
+O repositório é atualizado toda semana.
 
 ---
 
-##  Meu Método de Organização
+## Estrutura
 
-Acredito muito em rotina e consistência. Minhas anotações seguem sempre um padrão limpo para consulta rápida:
+```
+meus-estudos-tecnologia/
+├── Java/          # POO, listas, consumo de APIs, tratamento de exceções
+├── Python/        # Automação, manipulação de arquivos, Pandas, NumPy
+└── SQL/           # Modelagem, DML (INSERT, UPDATE, DELETE), consultas analíticas
+```
 
-1.  **O Conceito:** Explicação direta do comando ou da ferramenta (o que é e por que usar).
-2.  **Sintaxe Prática:** Exemplos de código limpos e comentados, simulando cenários do mundo real.
-3.  **Boas Práticas e Segurança:** Alertas cruciais sobre o impacto de comandos destrutivos e checklists para garantir a integridade dos dados.
+---
 
-Este espaço é atualizado toda semana, acompanhando o progresso dos meus cursos na Alura, Asimov Academy, Coursera, faculdade e projetos práticos.
+## Conteúdo por tecnologia
+
+### Java
+Lógica de programação, Orientação a Objetos (POO), estruturas de dados, consumo de APIs REST e tratamento estruturado de exceções.
+
+### Python
+Scripts de automação de processos, manipulação de arquivos e bibliotecas voltadas para dados: Pandas e NumPy.
+
+### SQL
+Modelagem relacional, normalização de tabelas, comandos DML e consultas analíticas com agregações e filtros avançados.
+
+---
+
+## Formato das anotações
+
+Cada tópico segue um padrão consistente:
+
+1. **O conceito** — explicação direta do que é e por que usar
+2. **Sintaxe prática** — exemplos de código limpos e comentados, simulando cenários reais
+3. **Boas práticas e segurança** — alertas sobre comandos destrutivos, checklist de integridade de dados e cuidados para produção
+
+---
+
+## Próximos tópicos
+
+- [ ] Engenharia de Dados — pipelines, ETL/ELT, automações com n8n
+- [ ] Power BI — modelagem de dados, DAX, criação de dashboards
+- [ ] Azure Cloud — fundamentos e serviços de dados
+
+---
+
+## Autor
+
+**Enuk Nogueira** — Eletricista industrial em transição para Dados e IA. Graduando em Análise e Desenvolvimento de Sistemas pela PUCPR.
+
+[![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/enuknogueira/)
+[![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/EnukNogueira)
+
