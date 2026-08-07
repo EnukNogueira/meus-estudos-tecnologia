@@ -183,4 +183,244 @@ fig.show()
 
 `df.hist(bins=30, figsize=(30, 15))`  da a distribuição dos dados criando histogramas para cada uma das features.
 
+Correlação
+
+`df.corr()[”Price”].sort_values(ascending=False)` Fazendo isso eu vou saber quais são as variáveis que se correlacionam com o preço. o `.sort_values(ascending=False)` é para ordenar do maior pro menor 
+
 <br>
+
+**![](Files/image.png)**
+
+### **SKLEARN**
+
+Uma biblioteca muito útil pois contem vários modelos de machine learning
+
+<br>
+
+Como excluir um dado/tabela especifica: `df_cleaned = df_rent.drop([”new”, “property Type”, Negotiation Type”],axis=1)` o comando drop irá “deletar” essas 2 colunas. Por que fazer isso? Dependendo do caso existem tabelas que não serão uteis para nossa análise de dados então tiramos, porem existem muitos casos diferentes então não é regra. 
+
+<br>
+
+Alguns modelos de machine learning não conseguem lidar com variais categóricas que no caso são do tipo texto bruto, uma string. Nesse caso temos 2 opções: Primeiro, transformar esses dados do tipo string em dados tipo int ou float ou dar o comando drop conforme foi explicado acima.
+
+<br>
+
+```python
+from sklearn.preprocessing import OrdinalEncoder
+ordinal_encoder = OrdinalEncoder()
+
+district_encoded = ordinal_encoder.fit_transform(df_rent[["district"]]) #fit_transform vai pegar a coluna district irá analisa-la e irá guardar nessa variavel district_encoded
+```
+
+No código acima mostra exatamente a primeira opção que seria substituir uma string por int para o modelo de machine learning conseguir interpretar. Porem ele vai organizando em vários números diferentes o que pode confundir dependendo do dado. 
+
+<br>
+
+Tem um terceiro exemplo que seria separar por 1 e 0 em diferentes tabelas para cada dado exemplo:
+
+```python
+from sklearn.preprocessing import OrdinalEncoder
+cat_encoder = OrdinalEncoder()
+housing_cat_1hot = cat_encoder.fit_transform(df_cleaned[[”District”]])
+housing_cat_1hot.toarray()
+
+
+```
+
+Fazendo isso ele irá dizer que agora é uma classe sparse matrix que é uma matriz bem grande com muitos 0. Um método para economizar memoria ram
+
+![](Files/image%202.png)
+
+Forma mais fácil de fazer com o uso da biblioteca pandas: 
+
+```python
+one_hot = pd.get_dummies(df_cleaned[”District”])
+df = df_cleaned.drop(’District’,axis = 1)
+df = df.join(one_hot)
+df
+```
+
+* * *
+
+<br>
+
+### Treinamento de modelos
+
+##### Preparando para treinar
+
+<br>
+
+```python
+from sklearn.model_selection import train_test_split
+
+```
+
+Separando a coluna preço: 
+
+```python
+Y = df["Price"]
+X = df.loc[:, df.columns !="Price"]
+```
+
+<br>
+
+```python
+x_train, x_test, y_train, y_test = train_test_split(X, Y, test_size= 0.3)
+```
+
+<br>
+
+##### Começo do treinamento
+
+ **LinearRegression - modelo**
+
+```python
+from sklearn.linear_model import LinearRegression
+
+lin_reg = LinearRegression()
+lin_reg.fit(x_train, y_train) #O modelo irá utilizar a função custo para fazer a otimização
+```
+
+Usando na pratica:
+
+```python
+alguns_dados = x_train.iloc[:5]
+algumas_label = y_train.iloc[:5]
+
+print("Predicoes", lin_reg.predict(alguns_dados))
+print("labels", algumas_label.values)
+```
+
+![](Files/image%203.png)
+
+Sabendo como o modelo performou dentro dos dados de treino:
+
+```python
+from sklearn.metrics import mean_squared_error
+
+preds = lin_reg.predict(x_train)
+lin_mse = mean_squared_error(y_train, preds)
+
+lin_rmse = np.sqrt(lin_mse)
+lin_rmse
+```
+
+![](Files/image%204.png)
+
+<br>
+
+**DecisionTree Regressor - modelo**
+
+```python
+from sklearn.tree import DecisionTreeRegressor
+
+tree_reg = DecisionTreeRegressor()
+tree_reg.fit(x_train, y_train) #O modelo irá utilizar a função custo para fazer a otimização
+
+```
+
+Usando na pratica:
+
+```python
+preds = tree_reg.predict(x_train)
+tree_mse = mean_squared_error(y_train, preds)
+
+tree_rmse = np.sqrt(tree_mse)
+tree_rmse
+```
+
+![](Files/image%205.png)
+
+**Cross Validation - modelo**
+
+Pode ser utilizado para avaliar qualquer modelo de machine learning
+
+```python
+from sklearn.modelo_selection import cross_val_score 
+
+scores = cross_val_score(tree_reg, x_train, y_train, scoring="neg_mean_squared_error", cv= 10)
+tree_rmse_scores = np.sqrt(-scores)
+
+def display_scores(scores):
+   print("Scores",scores)
+   print("Mean",scores.mean())
+   print("Standard deviation",scores.std())
+
+display_scores(tree_rmse_scores)
+```
+
+![](Files/image%206.png)
+
+<br>
+
+RandomForest Regressors
+
+<br>
+
+```python
+from sklearn.ensemble import RandomForestRegressor
+rf_reg = RandomForestRegressor()
+rf_reg.fit(x_train, y_train)
+```
+
+<br>
+
+```python
+preds = rf_reg.predict(x_train)
+rf_mse = mean_squared_error(y_train, preds)
+
+rf_rmse = np.sqrt(tree_mse)
+rf_rmse
+
+```
+
+<br>
+
+<br>
+
+### Avaliar e otimizar o modelo
+
+<br>
+
+```python
+from sklearn.model_selection import GridSearchCV
+
+param_grid = [
+    {'n_estimators': [3,10,30, 'max,features': [2,4,6,8]},
+    {'bootstrap': [False], 'n_estimators': [3,10], 'max_features': [2,3,4]},
+]
+
+forest_reg = RandomForestRegressor()
+
+grid_search = GridSearchCV(forest_reg,param_grid, cv=5, scoring="neg_mean_squared_error")
+
+grid_search.fit(x_train, y_train)
+```
+
+![](Files/image%207.png)
+
+```python
+grid_search.best_estimator_
+```
+
+![](Files/image%208.png)
+
+```python
+final_model = grid_search.best_estimator_
+final_model_predictions = final_model.predict(x_test)
+
+final_mse = mean_squared_error(y_test, final_model_predictions)
+print(np.sqrt(final_mse))
+```
+
+Teve uma média de erro de 1844.55 reais dos preços dos apartamentos
+
+<br>
+
+Gerando gráfico 
+
+`fig = go.Figure(data=[go.Scatter(y=y_test.values), go.Scatter(y=final_model_predictions)])` 
+
+ `fig.show()`
+
+![](Files/image%209.png)
