@@ -118,7 +118,7 @@ Próxima etapa de aprofundamento:
 
 ---
 
-# ☁️ Cloud
+# Cloud
 
 ### AWS
 
