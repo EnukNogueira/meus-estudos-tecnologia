@@ -57,7 +57,7 @@ Meu foco é aprender os conceitos e, sempre que possível, transformar o conteú
 ### Excel
 
 * [x] Excel
-* [x] Excel Avançado
+* [x] Excel Avançado - fórmulas, tabelas dinâmicas, gráficos e análise de dados
 
 ### Power BI
 
@@ -122,7 +122,7 @@ Próxima etapa de aprofundamento:
 
 ### AWS
 
-* [ ] Fundamentos de Cloud Computing
+* [x] Fundamentos de Cloud Computing
 * [ ] Serviços AWS
 * [ ] Armazenamento
 * [ ] Computação
