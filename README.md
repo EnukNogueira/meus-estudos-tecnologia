@@ -52,7 +52,7 @@ Meu foco é aprender os conceitos e, sempre que possível, transformar o conteú
 
 ---
 
-# 📊 Dados e Business Intelligence
+# Dados e Business Intelligence
 
 ### Excel
 
