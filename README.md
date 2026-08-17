@@ -79,7 +79,7 @@ Meu foco é aprender os conceitos e, sempre que possível, transformar o conteú
 
 ---
 
-# 🤖 Machine Learning e IA
+# Machine Learning e IA
 
 ### Fundamentos
 
@@ -102,7 +102,7 @@ Meu foco é aprender os conceitos e, sempre que possível, transformar o conteú
 
 ---
 
-# 🏗️ Engenharia de Dados
+# Engenharia de Dados
 
 Próxima etapa de aprofundamento:
 
@@ -278,7 +278,7 @@ O objetivo não é apenas acumular cursos, mas transformar o conhecimento adquir
 
 **Enuk Nogueira**
 
-Estudante de Engenharia de Software com foco em **Dados, Machine Learning e Engenharia de Dados**.
+Estudante de Análise e Desenvolvimento de Sistemas com foco em **Dados, Machine Learning e Ciência de Dados**.
 
 [LinkedIn](https://www.linkedin.com/in/enuknogueira/) · [GitHub](https://github.com/EnukNogueira)
 
