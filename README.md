@@ -278,7 +278,7 @@ O objetivo não é apenas acumular cursos, mas transformar o conhecimento adquir
 
 **Enuk Nogueira**
 
-Estudante de Análise e Desenvolvimento de Sistemas com foco em **Dados, Machine Learning e Ciência de Dados**.
+Estudante de Big Data e Inteligência Analítica com foco em **Dados, Machine Learning e Ciência de Dados**.
 
 [LinkedIn](https://www.linkedin.com/in/enuknogueira/) · [GitHub](https://github.com/EnukNogueira)
 
